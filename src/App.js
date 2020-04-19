@@ -5,7 +5,7 @@ import Wrapper from './Wrapper';
 function App() {
   return (
     <Wrapper>
-      <HelloWorld color="red" name="props 연습" />
+      <HelloWorld color="red" name="props 연습" isSpecial/>
       <HelloWorld color="pink"/>
       <HelloWorld/>
     </Wrapper>
