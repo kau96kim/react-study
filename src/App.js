@@ -1,13 +1,11 @@
 import React from 'react';
-import HelloWorld from './Hello';
 import Wrapper from './Wrapper';
+import Counter from './Counter';
 
 function App() {
   return (
     <Wrapper>
-      <HelloWorld color="red" name="props 연습" isSpecial/>
-      <HelloWorld color="pink"/>
-      <HelloWorld/>
+      <Counter />
     </Wrapper>
   );
 }
