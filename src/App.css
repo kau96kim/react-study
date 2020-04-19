@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.gray-box {
+  background-color: gray;
+  width: 64px;
+  height: 64px;
+  margin-left: 45%;
+}
