@@ -6,9 +6,7 @@ function HelloWorld( {color, name} ) {
         color
     }
     return (
-        <>
-            <div style={style}>Hello, world! name: {name}</div>
-        </>
+    <div style={style}>Hello, world! name: {name}</div>
     );
 }
 
