@@ -13,10 +13,10 @@ function Input() {
 
   function onChange(e) {
     const { name, value } = e.target;
-    setInput({
-      ...inputs,
+    setInput((prevInputs) => ({
+      ...prevInputs,
       [name]: value
-    });
+    }));
   }
   function reset() {
     setInput({
