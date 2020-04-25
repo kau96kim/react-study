@@ -6,20 +6,7 @@ function User({ user }) {
   );
 }
 
-function UserList() {
-  const users = [
-    {
-      id: 1,
-      name: "김종하",
-      phone: "01027781912"
-    },
-    {
-      id: 2,
-      name: "마수경",
-      phone: "01021118309"
-    }
-  ];
-
+function UserList( {users} ) {
   return (
     <div>
       {
