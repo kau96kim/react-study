@@ -2,6 +2,7 @@ import React from 'react';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
 import Input from './Input';
+import UserList from './UserList';
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Counter />
       <br />
       <Input />
+      <br />
+      <UserList />
     </Wrapper>
   );
 }
