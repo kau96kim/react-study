@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
-import Input from './Input';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
@@ -12,7 +11,7 @@ function App() {
   });
   const {username, phone} = userInput;
 
-  const [user, setUser] = useState([]);
+  const [users, setUser] = useState([]);
   const nextId = useRef(0);
 
   const onChange = (e) => {
@@ -37,6 +36,14 @@ function App() {
     });
   }
 
+  const onRemove = (userId) => {
+    return setUser((prevUser) => {
+      return prevUser.filter((user) => {
+        return user.id !== userId;
+      });
+    });
+  };
+
   return (
     <Wrapper>
       <Counter />
@@ -47,7 +54,7 @@ function App() {
         onChange={onChange} 
         onCreate={onCreate}/>
       <br />
-      <UserList users={user}/>
+      <UserList users={users} onRemove={onRemove}/>
     </Wrapper>
   );
 }
