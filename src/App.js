@@ -1,35 +1,53 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
 import Input from './Input';
 import UserList from './UserList';
+import CreateUser from './CreateUser';
 
 function App() {
-  const users = [
-    {
-      id: 1,
-      name: "김종하",
-      phone: "01027781912"
-    },
-    {
-      id: 2,
-      name: "마수경",
-      phone: "01021118309"
-    }
-  ];
+  const [userInput, setUserInput] = useState({
+    username: "",
+    phone: ""
+  });
+  const {username, phone} = userInput;
 
-  const nextId = useRef(1);
+  const [user, setUser] = useState([]);
+  const nextId = useRef(0);
+
+  const onChange = (e) => {
+    const {name, value} = e.target;
+    setUserInput((prevInput) => ({
+      ...prevInput,
+      [name]: value
+    }));
+  }
+
   const onCreate = () => {
+    const user = {
+      id: nextId.current,
+      username,
+      phone
+    };
+    setUser((prevInput) => [...prevInput, user]);
     nextId.current++;
+    setUserInput({
+      username: "",
+      phone: ""
+    });
   }
 
   return (
     <Wrapper>
       <Counter />
       <br />
-      <Input />
+      <CreateUser 
+        username={username} 
+        phone={phone} 
+        onChange={onChange} 
+        onCreate={onCreate}/>
       <br />
-      <UserList users={users}/>
+      <UserList users={user}/>
     </Wrapper>
   );
 }

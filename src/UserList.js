@@ -2,7 +2,7 @@ import React from 'react';
 
 function User({ user }) {
   return (
-    <div><b>{user.name}</b> <span>{user.phone}</span></div>
+    <div><b>{user.username}</b>: <span>{user.phone}</span></div>
   );
 }
 
