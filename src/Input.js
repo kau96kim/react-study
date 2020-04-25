@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function Input() {
   const inputStyle = {
     "margin-right": 5,
     width: 100
   }
+
   const [inputs, setInput] = useState({
     name: "",
     nickname: ""
   });
   const { name, nickname } = inputs;
+  const nameInput = useRef();
 
   function onChange(e) {
     const { name, value } = e.target;
@@ -23,6 +25,7 @@ function Input() {
       name: "",
       nickname: ""
     });
+    nameInput.current.focus();
   }
 
   return (
@@ -33,6 +36,7 @@ function Input() {
         onChange={onChange} 
         value={name} 
         placeholder="name"
+        ref={nameInput}
       />
       <input 
         name="nickname" 
