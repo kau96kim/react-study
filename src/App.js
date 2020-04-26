@@ -20,29 +20,36 @@ function App() {
       ...prevInput,
       [name]: value
     }));
-  }
+  };
 
   const onCreate = () => {
     const user = {
       id: nextId.current,
+      active: false,
       username,
       phone
     };
-    setUser((prevInput) => [...prevInput, user]);
+    setUser((prevUsers) => [...prevUsers, user]);
     nextId.current++;
     setUserInput({
       username: "",
       phone: ""
     });
-  }
-
-  const onRemove = (userId) => {
-    return setUser((prevUser) => {
-      return prevUser.filter((user) => {
-        return user.id !== userId;
-      });
-    });
   };
+
+  const onToggle = (userId) => {
+    setUser(prevUsers => 
+      prevUsers.map(user => 
+        user.id === userId
+          ? {...user, active: !user.active} 
+          : user
+      )
+    );
+  };
+
+  const onRemove = (userId) => (
+    setUser(prevUser => prevUser.filter(user => user.id !== userId))
+  );
 
   return (
     <Wrapper>
@@ -54,7 +61,7 @@ function App() {
         onChange={onChange} 
         onCreate={onCreate}/>
       <br />
-      <UserList users={users} onRemove={onRemove}/>
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
     </Wrapper>
   );
 }
