@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Counter() {
   const buttonStyle = {
@@ -6,6 +6,12 @@ function Counter() {
   }
 
   const [number, setNumber] = useState(0);
+
+  useEffect(() => {
+    return () => {
+      alert("숫자 바뀜");
+    };
+  }, [number]);
 
   const increase = () => {
     setNumber(prevNumber => prevNumber + 1);  

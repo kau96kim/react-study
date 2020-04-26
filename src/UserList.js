@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function User({ user, onRemove, onToggle }) {
   const activeStyle = {
     color: user.active ? "green" : "black",
     cursor: "pointer"
   };
+
+  useEffect(() => {
+    alert("정보 등록 완료");
+
+    return () => {
+      alert("정보 삭제 완료");
+    };
+  }, []);
 
   return (
     <div>
