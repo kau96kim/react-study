@@ -2,7 +2,7 @@ import React from 'react';
 
 function CreateUser( {username, phone, onChange, onCreate} ) {
   const inputStyle = {
-    "margin-right": 5,
+    "marginRight": 5,
     width: 100
   }
 
@@ -27,4 +27,4 @@ function CreateUser( {username, phone, onChange, onCreate} ) {
   )
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 function Input() {
   const inputStyle = {
-    "margin-right": 5,
+    "marginRight": 5,
     width: 100
   }
 

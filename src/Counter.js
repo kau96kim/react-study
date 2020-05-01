@@ -3,15 +3,15 @@ import React, { useState, useEffect } from 'react';
 function Counter() {
   const buttonStyle = {
     margin: 3
-  }
+  };
 
   const [number, setNumber] = useState(0);
 
-  useEffect(() => {
-    return () => {
-      alert("숫자 바뀜");
-    };
-  }, [number]);
+  // useEffect(() => {
+  //   return () => {
+  //     alert("숫자 바뀜");
+  //   };
+  // }, [number]);
 
   const increase = () => {
     setNumber(prevNumber => prevNumber + 1);  
@@ -30,4 +30,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default React.memo(Counter);

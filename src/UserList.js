@@ -2,9 +2,9 @@ import React, { useEffect, useMemo } from 'react';
 
 function CountActiveUsers(users) {
   return users.filter(user => user.active).length;
-}
+};
 
-function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user, onRemove, onToggle }) {
   const activeStyle = {
     color: user.active ? "green" : "black",
     cursor: "pointer"
@@ -22,12 +22,12 @@ function User({ user, onRemove, onToggle }) {
     <div>
       <button 
         onClick={() => onRemove(user.id)}
-        style={{"margin-right": 5}}>x
+        style={{"marginRight": 5}}>x
       </button>
       <b style={activeStyle} onClick={() => onToggle(user.id)}>{user.username}</b>:
       <span> {user.phone}</span></div>
   );
-}
+});
 
 function UserList( {users, onRemove, onToggle} ) {
   const count = useMemo(() => CountActiveUsers(users), [users]);
@@ -43,6 +43,6 @@ function UserList( {users, onRemove, onToggle} ) {
       <div>활성화 유저 수: {count}</div>
     </div>
   );
-}
+};
 
-export default UserList;
+export default React.memo(UserList);
