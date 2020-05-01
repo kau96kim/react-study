@@ -1,25 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
+  }
+}
 
 function Counter() {
   const buttonStyle = {
     margin: 3
   };
 
-  const [number, setNumber] = useState(0);
-
-  // useEffect(() => {
-  //   return () => {
-  //     alert("숫자 바뀜");
-  //   };
-  // }, [number]);
+  const [number, dispatch] = useReducer(reducer, 0);
 
   const increase = () => {
-    setNumber(prevNumber => prevNumber + 1);  
-  }
+    dispatch({
+      type: "INCREMENT"
+    });
+  };
 
   const decrease = () => {
-    setNumber(prevNumber => prevNumber - 1);
-  }
+    dispatch({
+      type: "DECREMENT"
+    });
+  };
 
   return (
     <div>

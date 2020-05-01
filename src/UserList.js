@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 function CountActiveUsers(users) {
   return users.filter(user => user.active).length;
@@ -9,14 +9,6 @@ const User = React.memo(function User({ user, onRemove, onToggle }) {
     color: user.active ? "green" : "black",
     cursor: "pointer"
   };
-
-  // useEffect(() => {
-  //   alert("정보 등록 완료");
-
-  //   return () => {
-  //     alert("정보 삭제 완료");
-  //   };
-  // }, []);
 
   return (
     <div>
