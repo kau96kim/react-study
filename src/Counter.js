@@ -3,9 +3,15 @@ import React, { useReducer } from 'react';
 function reducer(state, action) {
   switch (action.type) {
     case "INCREMENT":
-      return state + 1;
+      return {
+        ...state,
+        counter: state.counter + 1
+      };
     case "DECREMENT":
-      return state - 1;
+      return {
+        ...state,
+        counter: state.counter - 1
+      };
     default:
       return state;
   }
@@ -16,7 +22,9 @@ function Counter() {
     margin: 3
   };
 
-  const [number, dispatch] = useReducer(reducer, 0);
+  const [number, dispatch] = useReducer(reducer, {
+    counter: 0
+  });
 
   const increase = () => {
     dispatch({
@@ -32,7 +40,7 @@ function Counter() {
 
   return (
     <div>
-      <h1>{number}</h1>
+      <h1>{number.counter}</h1>
       <button onClick={increase} style={buttonStyle}>+</button>
       <button onClick={decrease} style={buttonStyle}>-</button>
     </div>

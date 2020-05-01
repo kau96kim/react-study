@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateUser( {username, phone, onChange, onCreate} ) {
+function CreateUser( {username, phoneNumber, onChange, onCreate} ) {
   const inputStyle = {
     "marginRight": 5,
     width: 100
@@ -16,10 +16,10 @@ function CreateUser( {username, phone, onChange, onCreate} ) {
         style={inputStyle}
       />
       <input 
-        name="phone"
+        name="phoneNumber"
         placeholder="전화번호"
         onChange={onChange}
-        value={phone}
+        value={phoneNumber}
         style={inputStyle}
       />
       <button onClick={onCreate}>Register</button>

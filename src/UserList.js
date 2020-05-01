@@ -17,7 +17,7 @@ const User = React.memo(function User({ user, onRemove, onToggle }) {
         style={{"marginRight": 5}}>x
       </button>
       <b style={activeStyle} onClick={() => onToggle(user.id)}>{user.username}</b>:
-      <span> {user.phone}</span></div>
+      <span> {user.phoneNumber}</span></div>
   );
 });
 
