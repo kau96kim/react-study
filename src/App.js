@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
 import UserList from './UserList';
@@ -10,19 +10,18 @@ function App() {
     phone: ""
   });
   const {username, phone} = userInput;
-
   const [users, setUser] = useState([]);
   const nextId = useRef(0);
 
-  const onChange = (e) => {
+  const onChange = useCallback(e => {
     const {name, value} = e.target;
     setUserInput((prevInput) => ({
       ...prevInput,
       [name]: value
     }));
-  };
+  }, []);
 
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       active: false,
@@ -35,21 +34,21 @@ function App() {
       username: "",
       phone: ""
     });
-  };
+  }, [nextId, username, phone]);
 
-  const onToggle = (userId) => {
+  const onToggle = useCallback(userId => (
     setUser(prevUsers => 
       prevUsers.map(user => 
         user.id === userId
           ? {...user, active: !user.active} 
           : user
       )
-    );
-  };
+    )
+  ), []);
 
-  const onRemove = (userId) => (
+  const onRemove = useCallback(userId => (
     setUser(prevUser => prevUser.filter(user => user.id !== userId))
-  );
+  ), []);
 
   return (
     <Wrapper>
