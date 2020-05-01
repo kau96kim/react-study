@@ -1,4 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
+
+function CountActiveUsers(users) {
+  return users.filter(user => user.active).length;
+}
 
 function User({ user, onRemove, onToggle }) {
   const activeStyle = {
@@ -6,13 +10,13 @@ function User({ user, onRemove, onToggle }) {
     cursor: "pointer"
   };
 
-  useEffect(() => {
-    alert("정보 등록 완료");
+  // useEffect(() => {
+  //   alert("정보 등록 완료");
 
-    return () => {
-      alert("정보 삭제 완료");
-    };
-  }, []);
+  //   return () => {
+  //     alert("정보 삭제 완료");
+  //   };
+  // }, []);
 
   return (
     <div>
@@ -26,6 +30,8 @@ function User({ user, onRemove, onToggle }) {
 }
 
 function UserList( {users, onRemove, onToggle} ) {
+  const count = useMemo(() => CountActiveUsers(users), [users]);
+
   return (
     <div>
       {
@@ -33,6 +39,8 @@ function UserList( {users, onRemove, onToggle} ) {
           return (<User user={user} key={user.id} onRemove={onRemove} onToggle={onToggle} />)
         })
       }
+      <br/>
+      <div>활성화 유저 수: {count}</div>
     </div>
   );
 }
