@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import HelloWorld from './Hello';
+import Counter from './Counter';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
-    <HelloWorld />
+    {/* <HelloWorld /> */}
+    <Counter />
   </React.StrictMode>,
   document.getElementById('root')
 );
