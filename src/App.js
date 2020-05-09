@@ -4,6 +4,7 @@ import Counter from './Counter';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 import produce from 'immer';
+import Error from './Error';
 
 const initialState = {
   users: []
@@ -49,6 +50,8 @@ function App() {
         <UserList 
           users={users}
         />
+        <br />
+        <Error />
       </Wrapper>
     </UserDispatch.Provider>
   );
