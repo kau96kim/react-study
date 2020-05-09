@@ -5,12 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import HelloWorld from './Hello';
 import Counter from './Counter';
+import ErrorBoundary from './ErrorBoundary';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    {/* <HelloWorld /> */}
-    <Counter />
+    <ErrorBoundary>
+      <App />
+      {/* <HelloWorld /> */}
+      {/* <Counter /> */}
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
