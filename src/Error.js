@@ -7,10 +7,11 @@ function Error() {
     setError(true);
   }
 
-  if (error) {
-    throw new Error("Custom Error");
-  }
-  return <button onClick={createError}>Break the world</button>
+  return (
+    <div>
+      {error ? Error() : <button onClick={createError}>Break the world</button>}
+    </div>
+  )
 }
 
 export default Error;
