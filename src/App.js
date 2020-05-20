@@ -1,33 +1,33 @@
-import React, { useReducer, createContext } from 'react';
-import Wrapper from './Wrapper';
-import Counter from './Counter';
-import UserList from './UserList';
-import CreateUser from './CreateUser';
-import produce from 'immer';
-import Error from './Error';
+import React, { useReducer, createContext } from "react";
+import Wrapper from "./Wrapper";
+import Counter from "./Counter";
+import UserList from "./UserList";
+import CreateUser from "./CreateUser";
+import produce from "immer";
+import Error from "./Error";
 
 const initialState = {
-  users: []
-}
+  users: [],
+};
 
 function reducer(state, action) {
   switch (action.type) {
     case "CREATE_USER":
       return {
         inputs: initialState.inputs,
-        users: [...state.users, action.user]
+        users: [...state.users, action.user],
       };
     case "TOGGLE_USER":
       return {
         ...state,
-        users: state.users.map(user => user.id === action.id
-          ? { ...user, active: !user.active }
-          : user)
+        users: state.users.map(user =>
+          user.id === action.id ? { ...user, active: !user.active } : user,
+        ),
       };
     case "REMOVE_USER":
       return {
         ...state,
-        users: state.users.filter(user => user.id !== action.id)
+        users: state.users.filter(user => user.id !== action.id),
       };
     default:
       throw new Error("Unhandled Action");
@@ -47,9 +47,7 @@ function App() {
         <br />
         <CreateUser />
         <br />
-        <UserList 
-          users={users}
-        />
+        <UserList users={users} />
         <br />
         <Error />
       </Wrapper>
