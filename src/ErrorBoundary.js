@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as Sentry from "@sentry/browser";
+import Wrapper from "./Wrapper";
 
 class ErrorBoundary extends Component {
   state = {
@@ -24,7 +25,11 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError)
-      return <button onClick={this.errorPage}>Report feedback</button>;
+      return (
+        <Wrapper>
+          <button onClick={this.errorPage}>Report feedback</button>
+        </Wrapper>
+      );
     else return this.props.children;
   }
 }

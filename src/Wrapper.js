@@ -1,17 +1,8 @@
-import React from 'react';
+import React from "react";
+import "./components/Wrapper.scss";
 
-function Wrapper( {children} ) {
-  const style = {
-    border: '2px solid black',
-    padding: 16,
-    width: 500,
-    borderRadius: 10,
-    margin: 10
-  }
-
-  return (
-    <div style={style}>{children}</div>
-  );
+function Wrapper({ children }) {
+  return <div className="Wrapper">{children}</div>;
 }
 
 export default React.memo(Wrapper);
