@@ -54,7 +54,12 @@ function App() {
           <br />
           <Error />
           <br />
-          <Button>HIDDEN BUTTON</Button>
+          <Button size="small">SMALL BUTTON</Button>
+          <Button size="small">SMALL BUTTON</Button>
+          <br />
+          <Button>MEDIUM BUTTON</Button>
+          <br />
+          <Button size="large">LARGE BUTTON</Button>
         </div>
       </Wrapper>
     </UserDispatch.Provider>
