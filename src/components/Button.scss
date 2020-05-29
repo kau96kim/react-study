@@ -1,4 +1,16 @@
 $blue: #228be6;
+$gray: #868e96;
+$violet: #9775fa;
+
+@mixin button-color($color) {
+  background: $color;
+  &:hover {
+    background: lighten($color: $color, $amount: 10%);
+  }
+  &:active {
+    background: darken($color: $color, $amount: 10%);
+  }
+}
 
 .Button {
   display: inline-flex;
@@ -25,15 +37,19 @@ $blue: #228be6;
     font-size: 1.25rem;
   }
 
-  background: $blue;
-  &:hover {
-    background: lighten($color: $blue, $amount: 10%);
+  &.blue {
+    @include button-color($blue);
   }
-  &:active {
-    background: darken($color: $blue, $amount: 10%);
+
+  &.gray {
+    @include button-color($gray);
+  }
+
+  &.violet {
+    @include button-color($violet);
   }
 
   & + & {
-    margin-left: 1rem;
+    margin-left: 0.25rem;
   }
 }

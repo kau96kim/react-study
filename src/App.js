@@ -55,11 +55,13 @@ function App() {
           <Error />
           <br />
           <Button size="small">SMALL BUTTON</Button>
-          <Button size="small">SMALL BUTTON</Button>
-          <br />
+          <Button size="small" color="blue">
+            SMALL BUTTON
+          </Button>
           <Button>MEDIUM BUTTON</Button>
-          <br />
-          <Button size="large">LARGE BUTTON</Button>
+          <Button size="large" color="gray">
+            LARGE BUTTON
+          </Button>
         </div>
       </Wrapper>
     </UserDispatch.Provider>
