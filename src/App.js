@@ -59,7 +59,7 @@ function App() {
           <br />
           <Buttons color="gray">BUTTON</Buttons>
           <br />
-          <Buttons color="violet">BUTTON</Buttons>
+          <Buttons color="blue">BUTTON</Buttons>
           <br />
           <Buttons color="violet" outline>
             BUTTON

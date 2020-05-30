@@ -4,13 +4,13 @@ import Button from "./components/Button";
 function Buttons({ children, color, outline }) {
   return (
     <>
-      <Button size="large" color={color} outline>
+      <Button size="large" color={color} outline={outline}>
         {children}
       </Button>
-      <Button color={color} outline>
+      <Button color={color} outline={outline}>
         {children}
       </Button>
-      <Button size="small" color={color} outline>
+      <Button size="small" color={color} outline={outline}>
         {children}
       </Button>
     </>
