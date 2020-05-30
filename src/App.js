@@ -1,4 +1,4 @@
-import React, { useReducer, createContext } from "react";
+import React, { useReducer, createContext, useState } from "react";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
 import UserList from "./UserList";
@@ -6,7 +6,8 @@ import CreateUser from "./CreateUser";
 import Error from "./Error";
 import Button from "./components/Button";
 import "./components/App.scss";
-import Buttons from "./Buttons";
+import Buttons from "./components/Buttons";
+import CheckBox from "./components/CheckBox";
 // import produce from "immer";
 
 const initialState = {
@@ -43,6 +44,11 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { users } = state;
 
+  const [check, setCheck] = useState(false);
+  const onChange = e => {
+    setCheck(e.target.checked);
+  };
+
   return (
     <UserDispatch.Provider value={dispatch}>
       <Wrapper>
@@ -72,6 +78,11 @@ function App() {
           <Button size="large" color="gray">
             LARGE BUTTON
           </Button>
+          <br />
+          <br />
+          <CheckBox checked={check} onChange={onChange}>
+            다음 약관에 모두 동의하기
+          </CheckBox>
         </div>
       </Wrapper>
     </UserDispatch.Provider>
