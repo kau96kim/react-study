@@ -6,6 +6,7 @@ import CreateUser from "./CreateUser";
 import Error from "./Error";
 import Button from "./components/Button";
 import "./components/App.scss";
+import Buttons from "./Buttons";
 // import produce from "immer";
 
 const initialState = {
@@ -54,11 +55,20 @@ function App() {
           <br />
           <Error />
           <br />
+          <Buttons>BUTTON</Buttons>
+          <br />
+          <Buttons color="gray">BUTTON</Buttons>
+          <br />
+          <Buttons color="violet">BUTTON</Buttons>
+          <br />
+          <Buttons color="violet" outline>
+            BUTTON
+          </Buttons>
           <Button size="small">SMALL BUTTON</Button>
-          <Button size="small" color="blue">
+          <Button size="small" color="blue" fullWidth>
             SMALL BUTTON
           </Button>
-          <Button>MEDIUM BUTTON</Button>
+          <Button outline>MEDIUM BUTTON</Button>
           <Button size="large" color="gray">
             LARGE BUTTON
           </Button>
